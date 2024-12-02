@@ -1,5 +1,5 @@
 {
-  "name": "common-cli",
+  "name": "msatcn-common-cli",
   "bin": "bin/index.js",
   "version": "1.0.0",
   "description": "msatcn common-cli",
@@ -14,6 +14,7 @@
     "chalk": "^5.3.0",
     "commander": "^12.1.0",
     "download-git-repo": "^3.0.2",
+    "figlet": "^1.8.0",
     "fs-extra": "^11.2.0",
     "inquirer": "^12.1.0",
     "ora": "^8.1.1"

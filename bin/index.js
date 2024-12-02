@@ -9,6 +9,7 @@ import inquirer from 'inquirer'; // 命令行交互工具
 // import path from 'path'; // 命令行交互工具
 import { program } from 'commander'; // 引入commander
 import download from 'download-git-repo';
+import figlet from 'figlet';
 
 // 定义 create 命令
 program
@@ -47,15 +48,16 @@ program
        * https://github.com + : + bingmada/my-cli + # + 分支名称 
        */
       download(
-        'https://github.com:bingmada/my-cli#master',
+        //https://github.com:bingmada/my-cli#master
+        'https://github.com:watson1029/common-cli#main',
         `./${projectName}`,
         {
           map: (file) => {
-            file.path = file.path.replace(`templates\\${choose}`, '');
+            file.path = file.path.replace(`template\\${choose}`, '');
             return file;
           },
           filter: (file) => {
-            return file.path.indexOf(`templates\\${choose}`) != -1;
+            return file.path.indexOf(`template\\${choose}`) != -1;
           },
         },
         function (err) {
@@ -69,14 +71,14 @@ program
               chalk.blue.underline.bold(projectName) + ' 项目创建成功!'
             )
           );
-          console.log(`
-              __      __   __     __       _ _ _
-             /  |    /  |  | |   / /    ___| (_) |
-            / /| |  / /| |  |_| /_/___ / __| | | |
-           / /  | |/ /  | |   | |  ___| (__| | |_|
-          /_/    |__/    |_|  |_|      |___|_|_(_)
-        
-          `);
+          figlet('W a t s o n    C L I', function(err, data) {
+            if (err) {
+              console.log("Something went wrong...");
+              console.dir(err);
+              return;
+            }
+            console.log(data);
+          });
         }
       );
     } catch (err) {
